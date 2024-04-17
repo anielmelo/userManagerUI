@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald';
+    font-weight: 400;
+}
+
+main {
+    background-color: rgb(250, 247, 204);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+button {
+    margin-bottom: 0px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.form-space {
+    width: 25rem;
+    height: 23rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+#switch-form {
+    border-bottom: none;
+    background-color: rgb(35, 196, 100);
+}
+
+.user-form {
+    background-color: rgb(35, 196, 100);
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#login-form-disabled {
+    display: none;
+}
+
+#register-form-disabled {
+    display: none;
+}
+
+.user-form legend {
+    text-align: center;
+    width: 100%;
+}
+
+.user-form > fieldset {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.user-form > fieldset input {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    height: 30px;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.user-form  > button {
+    margin-bottom: 15px;
+    align-self: center;
+}
