@@ -17,8 +17,8 @@
             <form method="post" class="user-form" id="login-form">
                 <fieldset>
                     <legend>Login</legend>
-                    <input placeholder="email" type="text" name="email" id="email-input">
-                    <input placeholder="password" type="password" name="password" id="password-input">
+                    <input placeholder="email" type="email" name="email" id="email-input-login" required>
+                    <input placeholder="password" type="password" name="password" id="password-input-login" required>
                 </fieldset>
                 <button type="submit">access</button>
             </form>
@@ -26,14 +26,17 @@
             <form method="post" class="user-form" id="register-form-disabled">
                 <fieldset>
                     <legend>Register</legend>
-                    <input placeholder="name" type="text" name="name" id="name-input">
-                    <input placeholder="email" type="text" name="email" id="email-input">
-                    <input placeholder="password" type="password" name="password" id="password-input">
+                    <input placeholder="name" type="text" name="name" id="name-input-register" required>
+                    <input placeholder="email" type="email" name="email" id="email-input-register" required>
+                    <input placeholder="password" type="password" name="password" id="password-input-register" required>
                 </fieldset>
                 <button type="submit">create</button>
             </form>
         </div>
     </main>
-    <script src="js/loginScript.js"></script>
+    <script type="module" src="js/components/FormUser.js"></script>
+    <script type="module" src="js/components/events/switchForm.js"></script>
+    <script type="module" src="js/services/Fetch.js"></script>
+    <!-- <script type="module" src="js/loginScript.js"></script> -->
 </body>
 </html>

@@ -8,6 +8,23 @@
     <title>User</title>
 </head>
 <body>
+    
+    <div class="update-user-disabled">
+        <div class="form-update-space">
+            <button>X</button>
+            <form method="post">
+                <div class="input-form">
+                    <label for="name">Name: </label>
+                    <!-- set input value in js -->
+                    <input placeholder="new name" type="text" name="name" id="name-input-update" required>
+                </div>
+                <div class="button-form">
+                    <button class="update-button" type="submit">update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <nav>
         <div class="logo-manager">
             <span class="material-symbols-outlined">manage_accounts</span>
@@ -17,20 +34,24 @@
             <button>Log Out</button>
         </div>
     </nav>
+
     <main>
-        <div class="info-user">
+        <!-- <div class="info-user">
             <div class="data">
-                <label for="email">Name: </label>
+                <label for="name">Name: </label>
                 <p id="name">example</p>
                 
                 <label for="name">Email: </label>
-                <p id="email"">email@example.com</p>
+                <p id="email">email@example.com</p>
             </div>
             <div class="action">
-                <button id="update-button">update</button>
-                <button id="delete-button">delete</button>
+                <button class="update-button">update</button>
+                <button class="delete-button">delete</button>
             </div>
-        </div>
+        </div> -->
     </main>
+    <script type="module" src="js/components/events/loadUser.js"></script>
+    <script type="module" src="js/mainUserScript.js"></script>
+    <script type="module" src="js/services/Fetch.js"></script>
 </body>
 </html>
