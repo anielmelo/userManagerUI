@@ -14,10 +14,10 @@ export const authUser = async ({ email, password }) => {
     return data
 }
 
-export const createUser = async (form_register) => {
+export const createUser = async ({ name, email, password}) => {
     const response = await fetch(`${URL_BASE}/users/create`, {
         method: 'post',
-        body: form_register
+        body: JSON.stringify({ name, email, password })
     })
     const data = await response.json()
     return data
@@ -25,8 +25,24 @@ export const createUser = async (form_register) => {
 
 export const getUser = async (token) => {
     const response = await fetch(`${URL_BASE}/users/fetch`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
     })
-    const userResponse = await response.json()
-    return userResponse
+    const data = await response.json()
+    return data
 }
+
+export const updateUser = async (name, token) => {
+    const response = await fetch(`${URL_BASE}/users/update`, {
+        method: 'put',
+        headers: { 
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ name })
+    })
+    const data = await response.json()
+    return data
+}
+
+export const deleteUser = async (token) => {}

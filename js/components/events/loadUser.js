@@ -1,13 +1,12 @@
-import { getUser } from '../../services/Fetch.js'
+import { getUser, deleteUser } from '../../services/Fetch.js'
+import { loadUpdate } from './loadUpdate.js'
 
 const main = document.querySelector('main')
 
 export const loadUser = async (token) => {
     const response = await getUser(token)
 
-    console.log(response)
-
-    const user = response.jwt
+    const user = response.user
 
     main.innerHTML = ''
 
@@ -21,9 +20,23 @@ export const loadUser = async (token) => {
                 <p id="email">${user.email}</p>
             </div>
             <div class="action">
-                <button class="update-button" id="update-${user.id}" onclick="updateUser(${user.id})">update</button>
-                <button class="delete-button" id="delete-${user.id}" onclick="deleteUser(${user.id})">delete</button>
+                <button class="update-button" id="update-user-btn">update</button>
+                <button class="delete-button" id="delete-user-btn">delete</button>
             </div>
         </div>
     `
+    const updateButton = document.querySelector('#update-user-btn')
+    const deleteButton = document.querySelector('#delete-user-btn')
+
+    updateButton.addEventListener('click', async () => {
+        await loadUpdate(token)
+    })
+
+    deleteButton.addEventListener('click', async () => {
+        const response = await deleteUser(token)
+        if (response.error === 'false') {
+            // redireciona para login e apaga o sessionStorage
+        }
+        // import event snackbar
+    })
 }

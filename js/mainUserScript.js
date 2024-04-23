@@ -6,7 +6,7 @@ const getToken = () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const token = getToken()
-
+    
     if (token) {
         await loadUser(token)
     } else {

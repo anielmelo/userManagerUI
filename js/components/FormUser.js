@@ -2,6 +2,7 @@ import { authUser, createUser } from '../services/Fetch.js'
 
 const register = document.querySelector('#register-form-disabled')
 const login = document.querySelector('#login-form')
+const switchButton = document.querySelector('#switch-form')
 
 login.addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -15,8 +16,22 @@ login.addEventListener('submit', async (event) => {
     validateLogin(response, login)
 })
 
-register.addEventListener('submit', (event) => {
+register.addEventListener('submit', async (event) => {
     event.preventDefault()
+
+    const name = document.querySelector('#name-input-register').value
+    const email = document.querySelector('#email-input-register').value
+    const password = document.querySelector('#password-input-register').value
+
+    const response = await createUser({ name, email, password })
+
+    if (response.error === 'false') {
+        register.reset()
+        switchButton.click()
+    }
+
+    // const message = response.message
+    // import event snackbar
 })
 
 const validateLogin = (data, login) => {
