@@ -1,4 +1,5 @@
 import { authUser, createUser } from '../services/Fetch.js'
+import { showSnackbar } from './events/showSnackbar.js'
 
 const register = document.querySelector('#register-form-disabled')
 const login = document.querySelector('#login-form')
@@ -25,13 +26,14 @@ register.addEventListener('submit', async (event) => {
 
     const response = await createUser({ name, email, password })
 
-    if (response.error === 'false') {
-        register.reset()
-        switchButton.click()
-    }
+    showSnackbar(response.data, response.success)
 
-    // const message = response.message
-    // import event snackbar
+    if (response.error === 'true') {
+        return;
+    }
+    
+    register.reset()
+    switchButton.click()
 })
 
 const validateLogin = (data, login) => {
@@ -39,6 +41,7 @@ const validateLogin = (data, login) => {
         sessionStorage.setItem('token', data.jwt)
         login.reset()
         window.location.href = 'main.html'
+        return;
     }
-    // import event snackbar
+    showSnackbar(data.message, data.success)
 }

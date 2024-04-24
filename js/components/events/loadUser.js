@@ -1,5 +1,6 @@
 import { getUser, deleteUser } from '../../services/Fetch.js'
 import { loadUpdate } from './loadUpdate.js'
+import { showSnackbar } from './showSnackbar.js'
 
 const main = document.querySelector('main')
 
@@ -35,8 +36,9 @@ export const loadUser = async (token) => {
     deleteButton.addEventListener('click', async () => {
         const response = await deleteUser(token)
         if (response.error === 'false') {
-            // redireciona para login e apaga o sessionStorage
+            window.location.href = 'login.html'
+            sessionStorage.removeItem('token')
         }
-        // import event snackbar
+        showSnackbar(response.message, response.success)
     })
 }

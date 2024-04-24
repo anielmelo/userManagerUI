@@ -45,4 +45,13 @@ export const updateUser = async (name, token) => {
     return data
 }
 
-export const deleteUser = async (token) => {}
+export const deleteUser = async (token) => {
+    const response = await fetch(`${URL_BASE}/users/delete`, {
+        method: 'delete',
+        headers: { 
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    const data = await response.json()
+    return data
+}

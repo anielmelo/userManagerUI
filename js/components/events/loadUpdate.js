@@ -1,4 +1,5 @@
 import { getUser, updateUser } from '../../services/Fetch.js'
+import { showSnackbar } from './showSnackbar.js'
 
 const updateForm = document.querySelector('.update-user-disabled')
 
@@ -39,11 +40,14 @@ export const loadUpdate = async (token) => {
         const name = document.querySelector('#name-input-update').value
         
         const response = await updateUser(name, token)
-        console.log(response)
 
-        if (response.error === 'false') {
-            update.reset()
-            close.click()
+        showSnackbar(response.message, response.success)
+        
+        if (response.error === 'true') {
+            return;
         }
+
+        close.click()
+        location.reload()
     })
 }
