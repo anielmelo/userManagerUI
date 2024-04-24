@@ -154,3 +154,58 @@ main {
     background-color: rgb(200, 50, 50);
     color: white;
 }
+
+#snackbar {
+    z-index: 1000; 
+    visibility: hidden; 
+    transform: translateX(-50%);
+    position: fixed; 
+    left: 50%; 
+    bottom: 30px; 
+    min-width: 250px; 
+    text-align: center; 
+    font-size: 20px;
+    border: 2px solid black; 
+    box-shadow: 2px 2px black;
+    border-radius: 10px; 
+    padding: 16px; 
+}
+
+#snackbar.show-success {
+    background-color: rgb(91, 248, 91);
+    visibility: visible;
+}
+
+#snackbar.show-error {
+    background-color: rgb(235, 54, 54);
+    color: white;
+    visibility: visible;
+}
+
+@media (max-width: 480px) {
+    .info-user {
+        width: 100vw;
+        height: 100dvh;
+    }
+    
+    .logo-manager span {
+        font-size: 30px;
+        margin-right: 3px;
+    }
+
+    .form-update-space {
+        width: 100vw;
+        height: 50vh;
+    }
+    
+    .form-update-space > button {
+        width: 50px;
+        border-bottom: none;
+        flex: 10%;
+    }
+
+    .input-form > input {
+        font-size: 16px;
+        height: 60px;
+    }
+}
